@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Models\Buku;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,5 +16,6 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return Buku::all();
 });
+$router->post('/buku','BukuController@create');
