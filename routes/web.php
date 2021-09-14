@@ -16,6 +16,14 @@ use App\Models\Buku;
 */
 
 $router->get('/', function () use ($router) {
-    return Buku::all();
+    return 'welcome!';
+});
+
+$router->get('/buku', function () use ($router) {
+    return response()->json(Buku::all());
 });
 $router->post('/buku','BukuController@create');
+$router->get('/buku/{id}','BukuController@detail');
+$router->get('/buku/{id}/edit','BukuController@edit');
+$router->put('/buku/{id}/update','BukuController@update');
+$router->delete('/buku/{id}/delete','BukuController@delete');
